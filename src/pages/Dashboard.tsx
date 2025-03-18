@@ -13,7 +13,7 @@ const Dashboard: React.FC = () => {
   return (
     <Container maxWidth="lg">
       <Tabs value={activeTab} onChange={handleTabChange}>
-        <Tab label="Employee management" />
+        <Tab label="Employee Management" />
         <Tab label="Attendance Records" />
       </Tabs>
       <Box sx={{ mt: 2 }}>
