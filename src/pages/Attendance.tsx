@@ -10,6 +10,7 @@ import {
   Paper,
   TableContainer,
 } from '@mui/material';
+import placeholder from '../assets/placeholder.png';
 import { fetchAttendanceRecords } from '../services/employeeService'; // Create this service function
 
 interface AttendanceRecord {
@@ -58,7 +59,18 @@ const AttendanceDashboard: React.FC = () => {
           <TableBody>
             {records.map((record) => (
               <TableRow key={`${record.employeeID}-${record.attenDate}`}>
-                <TableCell align="center">{record.imageBase64}</TableCell>
+                <TableCell align="center">
+                  {record.imageBase64 ? (
+                    <img
+                      src={`data:image/jpeg;base64,${record.imageBase64}`}
+                      alt="Employee"
+                      width="75"
+                      style={{ borderRadius: '50%' }}
+                    />
+                  ) : (
+                    <img src={placeholder} alt="No Image" width="75" style={{ borderRadius: '50%' }} />
+                  )}
+                </TableCell>
                 <TableCell align="center">{record.employeeID}</TableCell>
                 <TableCell align="center">{record.attenDate}</TableCell>
                 <TableCell align="center">{record.checkInTime ? new Date(record.checkInTime).toLocaleTimeString() : 'N/A'}</TableCell>
