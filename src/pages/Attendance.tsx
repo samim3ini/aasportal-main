@@ -14,11 +14,11 @@ import placeholder from '../assets/placeholder.png';
 import { fetchAttendanceRecords } from '../services/employeeService'; // Create this service function
 
 interface AttendanceRecord {
-  imageBase64?: string;
   employeeID: string;
   attenDate: string;
   checkInTime: string | null;
   empStatus: string;
+  imageBase64?: string;
 }
 
 const AttendanceDashboard: React.FC = () => {
@@ -63,7 +63,7 @@ const AttendanceDashboard: React.FC = () => {
                   {record.imageBase64 ? (
                     <img
                       src={`data:image/jpeg;base64,${record.imageBase64}`}
-                      alt="Employee"
+                      alt="Visitor"
                       width="75"
                       style={{ borderRadius: '50%' }}
                     />
